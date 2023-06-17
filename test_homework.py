@@ -9,6 +9,7 @@ def test_greeting():
     age = 25
     # TODO Сформируйте нужную строку
     output = 'Привет, ' + name + '! Тебе ' + str(age) + ' лет.'
+    print(output)
     # Проверяем результат
     assert output == "Привет, Анна! Тебе 25 лет."
 
@@ -39,10 +40,12 @@ def test_circle():
     PI = 3.1415926535897932
     # TODO сосчитайте площадь
     area = PI * r**2
+    print(area)
     assert area == 1661.9025137490005
 
     # TODO сосчитайте длину окружности
     length = 2 * PI * r
+    print(length)
     assert length == 144.51326206513048
 
 
@@ -78,7 +81,7 @@ def test_unique_elements():
 
 
 def test_dicts():
-    """
+     """
     Создайте словарь из двух списков.
     Используйте первый список как ключи, а второй - как значения.
     Выведите на экран все значения словаря.
@@ -87,12 +90,20 @@ def test_dicts():
     first = ["a", "b", "c", "d", "e"]
     second = [1, 2, 3, 4, 5]
     d = {}
+   
     # TODO создайте словарь
-    for i in range(len(first)):
-        d[first[i]] = second[i]
+    
+    # Вариант 1 - создание с помощью for
+    # for i in range(len(first)):
+       # d[first[i]] = second[i]
 
-    print(d)
+    # Вариант 2 - создание кортежа с помощью zip
+    d = zip(first, second)
+    d = dict(d)
+
+    print(d.values())
 
 
     assert isinstance(d, dict)
     assert len(d) == 5
+
